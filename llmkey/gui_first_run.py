@@ -15,7 +15,8 @@ def first_run():
 <p style="font-size:10px">
 Welcome to LLM Popup.
 A tool which lets you use AI everywhere on your
-desktop without having to move between windows.
+desktop with a single keypress. Rather than shuffling
+between windows whenever you have a question.
 </p>
 
 <p style="font-size:10px">

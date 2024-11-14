@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=LLM Key
+Comment=Run LLM Key
+Exec=llm-key
+Terminal=false
+Type=Application
+Icon=llmkey
+StartupNotify=true
+Keywords=python;
