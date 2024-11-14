@@ -5,7 +5,7 @@ LLM Key makes is easy to use throughout your desktop by adding global keybinding
 The most basic use case is as soon as you have a quesiton you can press your shortcut
 and then the LLM with run in the background and popup a window when it done with the anwer.
 
-![How to use LLM Key](./demo.webm)
+![How to use LLM Key](./demo.gif)
 
 
 If you like this is you can
