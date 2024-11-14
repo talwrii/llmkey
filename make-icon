@@ -1,0 +1,4 @@
+#!/bin/bash
+# https://superuser.com/questions/491180/how-do-i-embed-multiple-sizes-in-an-ico-file
+convert icon.svg -define icon:auto-resize=16,48,256 -compress zip icon.ico
+
