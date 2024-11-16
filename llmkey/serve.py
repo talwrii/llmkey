@@ -7,7 +7,8 @@ import pyperclip
 
 
 from . import (gui_first_run, gui_menu, gui_prompt, gui_reply, gui_settings,
-               gui_status, gui_tray, llm, runner, tk_tools, config, gui_first_run)
+               gui_status, gui_tray, llm, runner, tk_tools, config, gui_first_run,
+               hotkeys)
 
 from .config import Config
 
@@ -154,17 +155,11 @@ def main():
 
     tk_root.withdraw()
 
-    keybind.KeyBinder.activate({
-        "Ctrl-Alt-O": lambda: tk_root.event_generate("<<one_off>>"),
-        "Ctrl-Alt-C": lambda: tk_root.event_generate("<<clipboard>>"),
-        "Ctrl-Alt-M": lambda: tk_root.event_generate("<<menu>>")
-        }, run_thread=True)
-
     tray = gui_tray.Tray(tk_root)
-
     tray_thread = threading.Thread(target=tray.run)
     tray_thread.daemon = True
     tray_thread.start()
+
 
     llm_runner = runner.LlmRunner(tk_root)
 
@@ -181,4 +176,10 @@ def main():
     tk_tools.my_bind(tk_root, "<<peek>>", callbacks.peek)
     tk_tools.my_bind(tk_root, "<<about>>", callbacks.about)
 
-    tk_root.mainloop()
+
+    with hotkeys.KeyBinder({
+        "<ctrl>+<alt>+o": lambda: tk_root.event_generate("<<one_off>>"),
+        "<ctrl>+<alt>+c": lambda: tk_root.event_generate("<<clipboard>>"),
+        "<ctrl>+<alt>+m": lambda: tk_root.event_generate("<<menu>>")
+        }):
+        tk_root.mainloop()

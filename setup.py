@@ -4,8 +4,19 @@ import distutils.core
 setuptools.setup(
     name='llmkey',
     version="1.0",
-    install_requires=["openai"],
-    author='Author',
+    install_requires=[
+        "openai",
+        "ollama",
+        "pynput",
+        "pystray",
+        "pyperclip",
+        "tkhtmlview",
+        "appdirs",
+
+        "PyGObject; platform_system=='Linux'" # need for pystray
+
+    ],
+    author='Tal Wrii',
     long_description_content_type='text/markdown',
     author_email='readwithai@gmail.com',
     description='',
