@@ -24,6 +24,7 @@ setuptools.setup(
     keywords='LLM GPT clipboard',
     url='',
     packages=["llmkey"],
+    package_data={"llmkey": ["icon.ico"]},
     data_files=[
         ('share/applications', ['llmkey.desktop']),
         ('share/icons/hicolor/scalable/apps/', ["llmkey.svg"])
