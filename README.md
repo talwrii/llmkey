@@ -19,6 +19,8 @@ If you like this is you can
 
 In a terminal run:
 
-`pip install llmkey`
-
-Then run LLM Key with `llm-key` in a terminal (or on linux you can find llm key in the launcher).
+```bash
+sudo apt-get install pipx
+pipx install llmkey
+llm-key
+```
