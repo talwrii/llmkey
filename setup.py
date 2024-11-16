@@ -3,7 +3,7 @@ import distutils.core
 
 setuptools.setup(
     name='llmkey',
-    version="1.0",
+    version="4.0",
     install_requires=[
         "openai",
         "ollama",

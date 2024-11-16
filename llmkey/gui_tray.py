@@ -1,7 +1,11 @@
+import pathlib
+
 import pystray
 from pystray import MenuItem
 import PIL.Image
 import tkinter as tk
+
+HERE = (pathlib.Path(__file__) / "..").resolve()
 
 class Tray:
     def __init__(self, tk_root:tk.Tk):
@@ -15,7 +19,7 @@ class Tray:
         self._icon.update_menu()
 
     def run(self):
-        image = PIL.Image.open("icon.ico")
+        image = PIL.Image.open(HERE / "icon.ico")
 
         def status(*_, **__):
             # only called with update_status
