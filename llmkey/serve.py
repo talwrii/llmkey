@@ -2,7 +2,6 @@ import logging
 import threading
 import tkinter as tk
 
-import keybind
 import pyperclip
 
 

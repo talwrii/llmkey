@@ -97,7 +97,6 @@ def menu(root, running, conf):
     tk_tools.bind_click(b, quit_app)
     window.bind("Q", quit_app)
 
-
     b = tk.Button(frame, text="Quit menu (q)")
     b.pack(fill="both")
     tk_tools.bind_click(b, lambda *_: window.destroy())
@@ -107,6 +106,7 @@ def menu(root, running, conf):
     ok_button_frame.pack(fill="both", expand=True)
     ok = tk.Button(ok_button_frame, takefocus=tk.YES, text="OK")
     ok.pack(side=tk.LEFT, pady=10, padx=10)
+    tk_tools.bind_click(ok, lambda *_: window.destroy())
 
 def get_model(conf):
     backend = get_backend(conf)
