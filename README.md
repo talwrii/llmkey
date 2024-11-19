@@ -11,6 +11,8 @@ It also copies the answer to the clipboard to be pasted straight away.
 
 # Installation
 
+LLM Key is hosted on [pypi](https://pypi.org/project/llmkey/)
+
 In a terminal run:
 
 ```bash
@@ -18,7 +20,6 @@ sudo apt-get install pipx
 pipx install llmkey
 llm-key
 ```
-
 
 # Me
 
