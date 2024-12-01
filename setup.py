@@ -16,13 +16,12 @@ setuptools.setup(
         "PyGObject; platform_system=='Linux'" # need for pystray
 
     ],
-    author='Tal Wrii',
+    author='Read with ai',
     long_description_content_type='text/markdown',
     author_email='readwithai@gmail.com',
-    description='',
     license='MIT',
-    keywords='LLM GPT clipboard',
-    url='',
+    keywords='LLM, GPT, clipboard',
+    url='https://github.com/talwrii/llmkey',
     packages=["llmkey"],
     package_data={"llmkey": ["icon.ico"]},
     data_files=[
