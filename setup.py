@@ -3,7 +3,7 @@ import distutils.core
 
 setuptools.setup(
     name='llmkey',
-    version="5.0",
+    version="6.0",
     install_requires=[
         "openai",
         "ollama",
@@ -12,7 +12,6 @@ setuptools.setup(
         "pyperclip",
         "tkhtmlview",
         "appdirs",
-
         "PyGObject; platform_system=='Linux'" # need for pystray
 
     ],
