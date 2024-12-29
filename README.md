@@ -17,6 +17,22 @@ sudo apt-get install pipx
 pipx install llmkey
 llm-key
 ```
+
+# Usage
+
+- Ctrl-Alt-o propmts you for a query and runs it.
+- Ctrl-Alt-c runs a query on the clipboard
+- Ctrl-Alt-m displays a menu of options
+- You can click on the L icon in the system tray for settings
+
+## Menu 
+
+Ctrl-Alt-m s -- Open settings
+Ctrl-Alt-m p -- Peak at the results so far
+Ctrl-Alt-m d -- Close the last result window
+Ctrl-Alt-m w -- Open a previous window
+
+
 # Me
 If you like this is you can
 
