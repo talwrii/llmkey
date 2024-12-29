@@ -19,19 +19,28 @@ llm-key
 ```
 
 # Usage
-
-- Ctrl-Alt-o propmts you for a query and runs it.
-- Ctrl-Alt-c runs a query on the clipboard
-- Ctrl-Alt-m displays a menu of options
+- Ctrl-Alt-O -- propmts you for a query and runs it.
+- Ctrl-Alt-C -- runs a query on the clipboard
+- Ctrl-Alt-M -- displays a menu of options
 - You can click on the L icon in the system tray for settings
 
 ## Menu 
+- Ctrl-Alt-m S -- Open settings
+- Ctrl-Alt-m P -- Peak at the results so far
+- Ctrl-Alt-m D -- Close the last result window
+- Ctrl-Alt-m W -- Open a previous window
 
-Ctrl-Alt-m s -- Open settings
-Ctrl-Alt-m p -- Peak at the results so far
-Ctrl-Alt-m d -- Close the last result window
-Ctrl-Alt-m w -- Open a previous window
+## Features
+- Run llm query on the clipboard
+- Switch between models
+- Multiple query results open at the same time
+- Quick keyboard bindings for most functions
+  -- Running queries
+  -- Poping up results windows
+  -- Closing windows
 
+# Change list
+7 - Add support for switching between windows
 
 # Me
 If you like this is you can
