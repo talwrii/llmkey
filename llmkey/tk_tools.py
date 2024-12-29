@@ -1,3 +1,5 @@
+import time
+
 def bind_click(button, callback):
     "Bind a click event for a button"
     state = {"mouse_on_button": True}
@@ -24,7 +26,7 @@ def drop_args(f):
         return f()
     return inner
 
-def my_bind(widget, sequence, func, add = None):
+def my_bind(widget, sequence, func):
     # Hack to include data
     # https://stackoverflow.com/questions/16369947/python-tkinterhow-can-i-fetch-the-value-of-data-which-was-set-in-function-eve
     def _substitute(*args):
@@ -34,7 +36,7 @@ def my_bind(widget, sequence, func, add = None):
         return (e,)
 
     funcid = widget._register(func, _substitute, needcleanup=1) #pylint: disable=protected-access
-    cmd = '{0}if {{"[{1} %d]" == "break"}} break\n'.format('+' if add else '', funcid)
+    cmd = 'if {{"[{} %d]" == "break"}} break\n'.format(funcid)
     widget.tk.call('bind', widget._w, sequence, cmd) #pylint: disable=protected-access
 
 
@@ -52,3 +54,12 @@ def fill_menu(menu, var, new: list[str], callback):
             return cb
 
         options.add_command(label=option, command=make_callback(option))
+
+
+
+def raise_window(window):
+    # tkraise and lift notify "settings are ready" - which is weird. Use this work around
+    # https://stackoverflow.com/questions/1892339/how-to-make-a-tkinter-window-jump-to-the-front
+    window.lift()
+    window.attributes('-topmost',True)
+    window.after_idle(window.attributes,'-topmost',False)

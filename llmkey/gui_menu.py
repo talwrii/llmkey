@@ -3,7 +3,8 @@ import tkinter as tk
 from . import tk_tools, llm, gui_settings
 from .gui_status import show_errors
 
-def menu(root, running, conf):
+def menu(bus, running, conf):
+    #pylint: disable=too-many-locals,too-many-statements
     conf.load()
     window = tk.Tk()
     window.title("LLM Popup")
@@ -13,7 +14,7 @@ def menu(root, running, conf):
 
     @show_errors
     def cancel(_):
-        root.event_generate("<<cancel>>")
+        bus.send("<<cancel>>")
         window.destroy()
 
     tk.Label(frame, text="Running..." if running else "No query running").pack(anchor="w")
@@ -25,12 +26,31 @@ def menu(root, running, conf):
 
     @show_errors
     def peek(_):
-        root.event_generate("<<peek>>")
+        bus.send("<<peek>>")
         window.destroy()
     p = tk.Button(frame, text="Peek at the results so far (p)")
     p.pack(fill="both")
     tk_tools.bind_click(p, peek)
     window.bind("p", peek)
+
+    @show_errors
+    def show_window(_):
+        bus.send("<<cycle_replies>>")
+        window.destroy()
+    p = tk.Button(frame, text="Cycle/show result windows (w)")
+    p.pack(fill="both")
+    tk_tools.bind_click(p, show_window)
+    window.bind("w", show_window)
+
+    @show_errors
+    def close_last(_):
+        print("close last called")
+        bus.send("<<close_last>>")
+        window.destroy()
+    p = tk.Button(frame, text="Close the last window (d)")
+    p.pack(fill="both")
+    tk_tools.bind_click(p, close_last)
+    window.bind("d", close_last)
 
     @show_errors
     def change_backend(*_):
@@ -45,7 +65,6 @@ def menu(root, running, conf):
 
     @show_errors
     def format_backend():
-        length = max(len(b) for b in llm.Backends.backends)
         return f"Backend: {conf.backend}"
 
     label_frame = tk.Frame(frame)
@@ -74,10 +93,8 @@ def menu(root, running, conf):
     window.bind("m", change_model)
     update_model()
 
-
     window.bind("<Return>", lambda _: window.destroy())
     window.bind("<Shift-Return>", lambda _: window.destroy())
-
 
     @show_errors
     def settings(*_):
@@ -116,7 +133,16 @@ def get_backend(conf):
     return llm.get(conf.backend or "openai")
 
 if __name__ == '__main__':
-    root = tk.Tk()
-    root.withdraw()
-    menu(root, False, None)
-    root.mainloop()
+    from . import config
+    from . import bus
+    def main():
+        root = tk.Tk()
+        root.withdraw()
+
+        conf = {}
+        store = config.mock_config(conf)
+        bus = bus.MockBus()
+        menu(bus, False, store)
+        root.mainloop()
+
+    main()
