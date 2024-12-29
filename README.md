@@ -25,10 +25,10 @@ llm-key
 - You can click on the L icon in the system tray for settings
 
 ## Menu 
-- Ctrl-Alt-m S -- Open settings
-- Ctrl-Alt-m P -- Peak at the results so far
-- Ctrl-Alt-m D -- Close the last result window
-- Ctrl-Alt-m W -- Open a previous window
+- Ctrl-Alt-M S -- Open settings
+- Ctrl-Alt-M P -- Peak at the results so far
+- Ctrl-Alt-M D -- Close the last result window
+- Ctrl-Alt-M W -- Open a previous window
 
 ## Features
 - Run llm query on the clipboard
