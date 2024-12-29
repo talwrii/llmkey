@@ -32,12 +32,13 @@ llm-key
 
 ## Features
 - Run llm query on the clipboard
-- Switch between models
+- Switch between backends
+  - Chatgpt, Ollama, xAI   
 - Multiple query results open at the same time
-- Quick keyboard bindings for most functions
-  -- Running queries
-  -- Poping up results windows
-  -- Closing windows
+- Quick keyboard bindings for most functions. "Keyboard first"
+  - Running queries
+  - Poping up results windows
+  - Closing result windows
 
 # Change list
 7 - Add support for switching between windows
